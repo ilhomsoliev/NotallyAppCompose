@@ -8,12 +8,18 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NoteDao {
-    @Query("SELECT * FROM note")
-    fun getNotes(): Flow<List<Note>>
 
     @Transaction
-    @Query("SELECT * FROM note")
+    @Query("SELECT * FROM note WHERE isDeleted IS 0 AND isArchived IS 0")
     fun getNotesWithLabels():Flow<List<NoteWithLabels>>
+
+    @Transaction
+    @Query("SELECT * FROM note WHERE isDeleted IS 1")
+    fun getDeletedNotesWithLabels():Flow<List<NoteWithLabels>>
+
+    @Transaction
+    @Query("SELECT * FROM note WHERE isDeleted IS 0 AND isArchived IS 1")
+    fun getArchivedNotesWithLabels():Flow<List<NoteWithLabels>>
 
     @Transaction
     @Query("SELECT * FROM note WHERE noteId = :id")

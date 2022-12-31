@@ -18,7 +18,6 @@ fun CustomDialogTextField(
     title:String,
     value:String,
     onValueChange:(String)->Unit,
-    onCancelClick:()->Unit,
     onSaveClick:()->Unit,
     onDismissRequest:()->Unit
 ) {
@@ -32,7 +31,7 @@ fun CustomDialogTextField(
         ) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(modifier = Modifier.padding(start = 24.dp, top = 16.dp), text = title, fontWeight = FontWeight.Medium)
-                TextField(value = value, onValueChange = onValueChange)
+                TextField(modifier = Modifier.padding(horizontal = 24.dp),value = value, onValueChange = onValueChange)
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()

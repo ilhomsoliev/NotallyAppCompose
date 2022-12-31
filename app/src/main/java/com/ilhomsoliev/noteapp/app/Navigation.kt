@@ -165,10 +165,24 @@ fun Navigation() {
                 })
             }
             composable(route = Screens.TrashScreen.route) {
-                TrashScreen()
+                TrashScreen(goToAddScreen = { noteId ->
+                    navController.navigate(
+                        Screens.AddEditNoteScreen.route.replace(
+                            "{${Constants.NOTE_ID_ARG}}",
+                            "$noteId"
+                        )
+                    )
+                })
             }
             composable(route = Screens.ArchiveScreen.route) {
-                ArchiveScreen()
+                ArchiveScreen(goToAddScreen = { noteId ->
+                    navController.navigate(
+                        Screens.AddEditNoteScreen.route.replace(
+                            "{${Constants.NOTE_ID_ARG}}",
+                            "$noteId"
+                        )
+                    )
+                })
             }
             composable(route = Screens.SettingsScreen.route) {
                 SettingsScreen()

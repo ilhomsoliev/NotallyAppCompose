@@ -8,7 +8,7 @@ import com.ilhomsoliev.noteapp.domain.model.relations.NoteLabelCrossRef
 
 @Database(
     entities = [Note::class, Label::class,NoteLabelCrossRef::class],
-    version = 7,
+    version = 8,
 )
 abstract class NoteDatabase:RoomDatabase() {
     abstract val noteDao:NoteDao

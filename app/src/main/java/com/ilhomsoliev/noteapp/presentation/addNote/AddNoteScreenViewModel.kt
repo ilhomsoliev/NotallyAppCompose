@@ -11,8 +11,8 @@ import com.ilhomsoliev.noteapp.domain.model.relations.NoteLabelCrossRef
 import com.ilhomsoliev.noteapp.domain.model.relations.NoteWithLabels
 import com.ilhomsoliev.noteapp.domain.use_case.InsertNoteLabelCrossRefUseCase
 import com.ilhomsoliev.noteapp.domain.use_case.label.GetLabelsUseCase
-import com.ilhomsoliev.noteapp.domain.use_case.note.DeleteNoteWithLabelsUseCase
-import com.ilhomsoliev.noteapp.domain.use_case.note.GetNoteWithLabelsByIdUseCase
+import com.ilhomsoliev.noteapp.domain.use_case.note.DeleteNoteUseCase
+import com.ilhomsoliev.noteapp.domain.use_case.note.get.GetNoteWithLabelsByIdUseCase
 import com.ilhomsoliev.noteapp.domain.use_case.note.InsertNoteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -26,7 +26,7 @@ class AddNoteScreenViewModel @Inject constructor(
     private val getNoteWithLabelsByIdUseCase: GetNoteWithLabelsByIdUseCase,
     private val getLabelsUseCase: GetLabelsUseCase,
     private val insertNoteLabelCrossRefUseCase: InsertNoteLabelCrossRefUseCase,
-    private val deleteNoteWithLabelsUseCase: DeleteNoteWithLabelsUseCase
+    private val deleteNoteWithLabelsUseCase: DeleteNoteUseCase
 ) : ViewModel() {
 
     private val _note = mutableStateOf(Note(timestamp = System.currentTimeMillis()))

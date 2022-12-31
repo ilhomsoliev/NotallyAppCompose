@@ -5,15 +5,17 @@ import com.ilhomsoliev.noteapp.domain.model.relations.NoteWithLabels
 import com.ilhomsoliev.noteapp.domain.repository.NoteRepository
 import javax.inject.Inject
 
-class DeleteNoteWithLabelsUseCase@Inject constructor(
+class DeleteForeverNoteUseCase @Inject constructor(
     private val repository: NoteRepository
 ){
     suspend operator fun invoke(
         note: NoteWithLabels
     ){
+
         repository.deleteNote(note.note)
         note.labels.forEach {
             repository.deleteNoteLabelCrossRef(NoteLabelCrossRef(note.note.noteId?:-1,it.labelId))
         }
+
     }
 }

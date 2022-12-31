@@ -10,9 +10,12 @@ import kotlinx.coroutines.flow.Flow
 class NoteRepositoryImpl(
     private val dao: NoteDao
 ) : NoteRepository {
-    override fun getNotes(): Flow<List<Note>> = dao.getNotes()
 
     override fun getNotesWithLabels(): Flow<List<NoteWithLabels>> = dao.getNotesWithLabels()
+
+    override fun getDeletedNotesWithLabels(): Flow<List<NoteWithLabels>> = dao.getDeletedNotesWithLabels()
+
+    override fun getArchivedNotesWithLabels(): Flow<List<NoteWithLabels>> = dao.getArchivedNotesWithLabels()
 
     override suspend fun getNoteWithLabelsById(id: Int): NoteWithLabels =
         dao.getNoteWithLabelsById(id)

@@ -18,7 +18,6 @@ fun LabelScreen(isCreateLabelDialogActive: Boolean, onDismissRequest:()->Unit, v
             title = "Create Label",
             value = newLabel,
             onValueChange = viewModel::changeLabel,
-            onCancelClick = onDismissRequest,
             onSaveClick = {
                 viewModel.addLabel()
                 onDismissRequest()
@@ -29,7 +28,9 @@ fun LabelScreen(isCreateLabelDialogActive: Boolean, onDismissRequest:()->Unit, v
     Column {
         LazyColumn(){
             items(labels){
-                LabelItem(it.labelId, onClick = {}, onLongClick = {
+                LabelItem(it.labelId, onClick = {
+
+                }, onLongClick = {
 
                 })
             }

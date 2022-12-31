@@ -6,8 +6,9 @@ import com.ilhomsoliev.noteapp.domain.model.relations.NoteWithLabels
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
-    fun getNotes(): Flow<List<Note>>
     fun getNotesWithLabels(): Flow<List<NoteWithLabels>>
+    fun getDeletedNotesWithLabels(): Flow<List<NoteWithLabels>>
+    fun getArchivedNotesWithLabels(): Flow<List<NoteWithLabels>>
     suspend fun getNoteWithLabelsById(id: Int): NoteWithLabels
     suspend fun getNote(id: Int): Note?
     suspend fun insertNote(note: Note):Long
