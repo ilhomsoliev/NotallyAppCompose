@@ -8,29 +8,34 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200,
+    primary = BLUE800,
+    primaryVariant = BLUE900,
+    secondary = GRAY400,
+    secondaryVariant = GRAY500,
     background = Color.Black,
-    surface = Color.Black,
-    onPrimary = Color.Black,
+    surface = GRAY700,
+    error = RED700,
+    onPrimary = Color.White,
     onSecondary = Color.White,
     onBackground = Color.White,
     onSurface = Color.White,
-    )
+    onError = Color.White,
+)
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200,
+    primary = BLUE800,
+    primaryVariant = BLUE900,
+    secondary = GRAY400,
+    secondaryVariant = GRAY500,
     background = Color.White,
-    surface = Color.White,
+    surface = GRAY700,
+    error = RED700,
     onPrimary = Color.White,
-    onSecondary = Color.Black,
+    onSecondary = Color.White   ,
     onBackground = Color.Black,
-    onSurface = Color.Black,
-
-)
+    onSurface = Color.Gray,
+    onError = Color.White,
+    )
 
 @Composable
 fun NoteAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {

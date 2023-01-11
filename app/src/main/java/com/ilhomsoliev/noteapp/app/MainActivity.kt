@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.getValue
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ilhomsoliev.noteapp.app.theme.NoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,6 +18,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             val isDarkTheme by  viewModel.isDarkTheme
             NoteAppTheme(darkTheme = isDarkTheme) {
+                val systemUiController = rememberSystemUiController()
+                systemUiController.setSystemBarsColor(MaterialTheme.colors.secondary)
                 Navigation()
             }
         }

@@ -26,11 +26,13 @@ class SettingsScreenViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
+
     fun setTheme(value:Boolean){
         viewModelScope.launch {
             preferences.putDarkThemeValue(value)
         }
     }
+
     private fun getListView(){
         preferences.isListView.onEach {
             isListViewTheme.value = it

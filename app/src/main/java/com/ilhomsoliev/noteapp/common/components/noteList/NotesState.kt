@@ -5,5 +5,4 @@ import com.ilhomsoliev.noteapp.domain.model.relations.NoteWithLabels
 
 data class NotesState (
     val notes:List<NoteWithLabels> = emptyList(),
-
 )

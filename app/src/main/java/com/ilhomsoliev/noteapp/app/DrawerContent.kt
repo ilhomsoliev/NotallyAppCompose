@@ -7,6 +7,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -30,12 +31,12 @@ fun DrawerContent(
     currentScreen: String,
 ) {
 
-    Column {
+    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
         Text(
             modifier = Modifier.padding(12.dp),
             text = "Note App",
             fontWeight = FontWeight.Bold,
-            color = Color.Blue
+            color = MaterialTheme.colors.primary
         )
         DrawerItem(
             "Notes",
@@ -75,7 +76,6 @@ fun DrawerContent(
 
 @Composable
 fun DrawerItem(text: String, icon: ImageVector, isActive: Boolean, onClick: () -> Unit) {
-
         Box(modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
@@ -87,7 +87,7 @@ fun DrawerItem(text: String, icon: ImageVector, isActive: Boolean, onClick: () -
                     .fillMaxWidth()
                     .padding(0.dp)
                     .clip(RoundedCornerShape(6.dp))
-                    .background(if (isActive) Color.Blue.copy(0.4f) else Color.Transparent)
+                    .background(if (isActive) MaterialTheme.colors.primary else Color.Transparent)
             ) {
                 Row( modifier = Modifier
                     .fillMaxWidth()
@@ -95,10 +95,10 @@ fun DrawerItem(text: String, icon: ImageVector, isActive: Boolean, onClick: () -
                     Icon(
                         imageVector = icon,
                         contentDescription = "",
-                        tint = if (isActive) Color.Blue else Color.Gray
+                        tint = if (isActive) MaterialTheme.colors.onPrimary else Color.Gray
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = text, color = if (isActive) Color.Blue else Color.Gray)
+                    Text(text = text, color = if (isActive) MaterialTheme.colors.onPrimary else Color.Gray)
                 }
             }
         }

@@ -25,6 +25,7 @@ fun LabelScreen(isCreateLabelDialogActive: Boolean, onDismissRequest:()->Unit, v
             onDismissRequest = onDismissRequest
         )
     }
+
     Column {
         LazyColumn(){
             items(labels){

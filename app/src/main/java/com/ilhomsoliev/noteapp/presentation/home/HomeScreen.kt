@@ -35,6 +35,7 @@ fun HomeScreen(goToAddScreen: (Int) -> Unit, viewModel: HomeScreenViewModel = hi
     val notesState by remember { viewModel.notesState }
     val isSelectedNotePinned by remember { viewModel.isSelectedNotePinned }
     val isListView by viewModel.isListViewTheme
+
     ModalBottomSheetLayout(
         sheetState = sheetState,
         sheetContent = {

@@ -28,16 +28,7 @@ fun Navigation() {
     val coroutineScope = rememberCoroutineScope()
     val currentScreen = navController.currentBackStackEntryAsState().value?.destination?.route?:""
     var isCreateLabelDialogActive by remember{ mutableStateOf(false) }
-    // TODO
-    /*BackHandler {
-        if (scaffoldState.drawerState.isOpen) {
-            coroutineScope.launch {
-                scaffoldState.drawerState.close()
-            }
-        }else {
 
-        }
-    }*/
     Scaffold(scaffoldState = scaffoldState, topBar = {
         if(currentScreen == Screens.HomeScreen.route ||
             currentScreen == Screens.TrashScreen.route ||
@@ -151,7 +142,7 @@ fun Navigation() {
                     type = NavType.IntType
                 })
             ) {
-                AddNoteScreen(it.arguments?.getInt(Constants.NOTE_ID_ARG) ?: -1, {
+                AddNoteScreen(it.arguments?.getInt(Constants.NOTE_ID_ARG) ?: -1, goToHomeScreen = {
                     navController.navigate(Screens.HomeScreen.route) {
                         popUpTo(Screens.HomeScreen.route) {
                             inclusive = true

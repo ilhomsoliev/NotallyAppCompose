@@ -2,7 +2,9 @@ package com.ilhomsoliev.noteapp.app.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val BLUE800 = Color(0xFF186cb6)
+val BLUE900 = Color(0xFF094f97)
+val GRAY400 = Color(0xFFbdbdbd)
+val GRAY500 = Color(0xFF9e9e9e)
+val GRAY700 = Color(0xFF616161)
+val RED700 = Color(0xFFd22f34)

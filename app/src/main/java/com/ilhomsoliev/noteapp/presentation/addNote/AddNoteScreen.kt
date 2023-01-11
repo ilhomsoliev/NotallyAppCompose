@@ -65,7 +65,7 @@ fun AddNoteScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colors.background)
     ) {
 
         TopAppBar(
@@ -123,9 +123,9 @@ fun AddNoteScreen(
             onValueChange = { viewModel.onTitleChange(it) },
             textStyle = TextStyle.Default.copy(fontSize = 20.sp, fontWeight = FontWeight.Black),
             colors = TextFieldDefaults.textFieldColors(
-                textColor = Color.Black,
+                textColor = MaterialTheme.colors.onBackground,
                 disabledTextColor = Color.Transparent,
-                backgroundColor = Color.White,
+                backgroundColor = MaterialTheme.colors.background,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent
@@ -147,9 +147,9 @@ fun AddNoteScreen(
             placeholder = { Text(text = "Description") },
             onValueChange = { viewModel.onDescriptionChange(it) },
             colors = TextFieldDefaults.textFieldColors(
-                textColor = Color.Black,
+                textColor = MaterialTheme.colors.onBackground,
                 disabledTextColor = Color.Transparent,
-                backgroundColor = Color.White,
+                backgroundColor = MaterialTheme.colors.background,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent

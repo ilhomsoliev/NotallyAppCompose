@@ -29,6 +29,7 @@ fun SettingsScreen(viewModel: SettingsScreenViewModel = hiltViewModel()) {
     var isThemeDialogActive by remember { mutableStateOf(false) }
     val isDarkTheme by viewModel.isDarkTheme
     val isListViewTheme by viewModel.isListViewTheme
+
     if (isViewDialogActive) {
         CustomDialogPickList(
             title = "View",

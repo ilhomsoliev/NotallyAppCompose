@@ -1,9 +1,6 @@
 package com.ilhomsoliev.noteapp.common.components.noteList
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.border
-import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -30,13 +28,14 @@ fun NoteItem(note: NoteWithLabels, onClick: () -> Unit, onLongClick: () -> Unit)
     Card(modifier = Modifier
         .fillMaxWidth()
         .padding(4.dp)
+        .background(MaterialTheme.colors.secondary)
         .combinedClickable(
             onLongClick = onLongClick,
             onClick = onClick
         ), border = BorderStroke(1.dp, Color.Gray)) {
         Column {
             if (note.note.title.isNotEmpty()) {
-                Text(modifier = Modifier.padding(8.dp), text = note.note.title)
+                Text(modifier = Modifier.padding(8.dp), text = note.note.title, color = MaterialTheme.colors.onSecondary)
             }
             Text(
                 modifier = Modifier.padding(horizontal = 8.dp),
@@ -44,7 +43,7 @@ fun NoteItem(note: NoteWithLabels, onClick: () -> Unit, onLongClick: () -> Unit)
                 fontSize = 14.sp,
                 color = Color.Gray
             )
-            Text(modifier = Modifier.padding(8.dp), text = note.note.content)
+            Text(modifier = Modifier.padding(8.dp), text = note.note.content, color = MaterialTheme.colors.onSecondary)
             FlowRow(
                 modifier = Modifier.padding(8.dp),
                 mainAxisAlignment = MainAxisAlignment.Start,
